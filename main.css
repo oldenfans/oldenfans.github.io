@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "OldLondon";
+  src: url(./OldLondon.ttf);
+}
+
+* {
+  font-family: "OldLondon";
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+.title h1 {
+  font-size: 3vw;
+  margin-top: 75px;
+}
+
+.title p {
+  font-size: 3vw;
+  color: #4422cc;
+  margin-left: 44%;
+}
+
+.main {
+  display: flex;
+  margin-left: 10%;
+}
+
+.main div {
+  margin: 1%;
+  background-color: #dddddd;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.rules {
+  width: 20%;
+}
+
+.pictures {
+  width: 60%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
