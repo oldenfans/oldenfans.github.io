@@ -18,7 +18,8 @@ async function get_images() {
   return chosen_images_src;
 }
 
-setInterval((async () => {
+
+async function display_images() {
   const images = await get_images();
   for (let i = 0; i < images.length; i++) {
     const img = document.createElement("img");
@@ -28,4 +29,18 @@ setInterval((async () => {
   
     document.getElementById("picturesdiv").appendChild(img);
   }
-}), 1000);
+}
+
+display_images();
+
+const load_on_scroll = true;
+addEventListener("scroll", async (event) => {
+  if (load_on_scroll) {
+    await display_images();
+    load_on_scroll = false;
+  }
+});
+
+setInterval(() => {
+  load_on_scroll = true;
+}, 500);
