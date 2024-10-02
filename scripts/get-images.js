@@ -6,7 +6,7 @@ async function get_images() {
   const images = doc.querySelectorAll("img");
   
   const chosen_images = [];
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 10; i++) {
     chosen_images.push(images[Math.floor(Math.random() * images.length)]);
   }
   
@@ -21,6 +21,7 @@ async function get_images() {
 
 async function display_images() {
   const images = await get_images();
+  console.log(images);
   for (let i = 0; i < images.length; i++) {
     const img = document.createElement("img");
     img.src = images[i];
@@ -33,14 +34,8 @@ async function display_images() {
 
 display_images();
 
-const load_on_scroll = true;
 addEventListener("scroll", async (event) => {
-  if (load_on_scroll) {
+  if (window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight) {
     await display_images();
-    load_on_scroll = false;
   }
 });
-
-setInterval(() => {
-  load_on_scroll = true;
-}, 500);
